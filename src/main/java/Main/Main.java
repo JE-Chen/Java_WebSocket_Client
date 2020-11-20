@@ -12,7 +12,7 @@ public class Main {
 
         ClientEndPoint_org_java_websocket Client = null;
         try {
-            Client = new ClientEndPoint_org_java_websocket(new URI("ws://192.168.1.36:5050/websocket"));
+            Client = new ClientEndPoint_org_java_websocket(new URI("ws://192.168.100.150:5050/websocket"));
             Client.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
