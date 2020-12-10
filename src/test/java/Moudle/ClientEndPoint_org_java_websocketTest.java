@@ -17,5 +17,4 @@ class ClientEndPoint_org_java_websocketTest {
             e.printStackTrace();
         }
     }
-
 }
