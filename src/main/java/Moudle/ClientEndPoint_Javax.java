@@ -1,17 +1,20 @@
 package Moudle;
 
 import javax.websocket.*;
+import java.io.IOException;
 import java.net.URI;
 
 @ClientEndpoint
 public class ClientEndPoint_Javax {
-    Session userSession = null;
+    private WebSocketContainer container;
+    private Session serverSession;
+    private Session userSession = null;
     private MessageHandler messageHandler;
 
     public ClientEndPoint_Javax(URI endpointURI) {
         try {
-            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            container.connectToServer(this, endpointURI);
+            container = ContainerProvider.getWebSocketContainer();
+            serverSession = container.connectToServer(this, endpointURI);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -78,5 +81,13 @@ public class ClientEndPoint_Javax {
     public static interface MessageHandler {
 
         public void handleMessage(String message);
+    }
+
+    public void close(){
+        try {
+            serverSession.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
