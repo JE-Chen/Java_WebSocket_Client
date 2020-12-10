@@ -22,7 +22,6 @@ class ClientEndPoint_JavaxTest {
                     clientEndPoint.sendMessage("Hello Server");
                     Thread.sleep(5000);
                     clientEndPoint.close();
-                } catch (
                         URISyntaxException ex) {
                     System.err.println("URISyntaxException exception: " + ex.getMessage());
                 } catch (InterruptedException e) {
@@ -33,5 +32,11 @@ class ClientEndPoint_JavaxTest {
         Thread testThread = new Thread(testRun);
         testThread.setDaemon(true);
         testThread.start();
+        try {
+            Thread.sleep(5000);
+            System.exit(0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
