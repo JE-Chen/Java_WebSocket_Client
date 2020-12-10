@@ -9,7 +9,7 @@ class ClientEndPoint_JavaxTest {
 
     @Test
     void testConnect() {
-        Runnable testRun =new Runnable() {
+        Runnable testRun = new Runnable() {
             @Override
             public void run() {
                 try {
@@ -20,9 +20,12 @@ class ClientEndPoint_JavaxTest {
                         }
                     });
                     clientEndPoint.sendMessage("Hello Server");
-                } catch (
+                    Thread.sleep(5000);
+                    clientEndPoint.close();
                         URISyntaxException ex) {
                     System.err.println("URISyntaxException exception: " + ex.getMessage());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         };
