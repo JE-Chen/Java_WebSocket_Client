@@ -17,7 +17,9 @@ class ClientEndPoint_JavaxTest {
                 }
             });
             clientEndPoint.sendMessage("Hello Server");
-        } catch (URISyntaxException ex) {
+            Thread.sleep(5000);
+            System.exit(1);
+        } catch (URISyntaxException | InterruptedException ex) {
             System.err.println("URISyntaxException exception: " + ex.getMessage());
         }
     }
