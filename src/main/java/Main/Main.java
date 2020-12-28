@@ -26,7 +26,7 @@ public class Main {
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
-        
+
     }
 }
 
