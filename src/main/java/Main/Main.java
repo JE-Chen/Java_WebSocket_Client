@@ -1,8 +1,10 @@
 package Main;
 
-import Moudle.ClientEndPoint_Javax;
 import Moudle.ClientEndPoint_org_java_websocket;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -10,34 +12,21 @@ public class Main {
 
     public static void main(String[] argc) {
 
+
         ClientEndPoint_org_java_websocket Client = null;
         try {
-            Client = new ClientEndPoint_org_java_websocket(new URI("ws://192.168.100.150:5050/websocket"));
+            Client = new ClientEndPoint_org_java_websocket(new URI("ws://localhost:5050/websocket/websocket"));
             Client.connect();
-        } catch (URISyntaxException e) {
+            String command;
+            do {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                command = reader.readLine();
+                Client.send(command);
+            } while (!command.equals("exit"));
+        } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
-
-
-        /*
-        try {
-            // open websocket
-            final ClientEndPoint_Javax clientEndPoint = new ClientEndPoint_Javax(new URI("ws://localhost:5050/websocket"));
-
-            // add listener
-            clientEndPoint.addMessageHandler(new ClientEndPoint_Javax.MessageHandler() {
-                public void handleMessage(String message) {
-                    System.out.println(message);
-                }
-            });
-
-            // send message to websocket
-            clientEndPoint.sendMessage("Hello Server");
-
-        } catch (URISyntaxException ex) {
-            System.err.println("URISyntaxException exception: " + ex.getMessage());
-        }
-        */
+        
     }
 }
 

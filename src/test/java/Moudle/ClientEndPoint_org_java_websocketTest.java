@@ -14,7 +14,7 @@ class ClientEndPoint_org_java_websocketTest {
             public void run() {
                 ClientEndPoint_org_java_websocket Client = null;
                 try {
-                    Client = new ClientEndPoint_org_java_websocket(new URI("ws://192.168.100.150:5050/websocket"));
+                    Client = new ClientEndPoint_org_java_websocket(new URI("ws://localhost:5050/websocket"));
                     Client.connect();
                     Thread.sleep(5000);
                     Client.close();

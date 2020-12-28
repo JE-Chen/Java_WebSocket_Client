@@ -24,7 +24,6 @@ public class ClientEndPoint_org_java_websocket extends WebSocketClient{
 
     @Override
     public void onOpen(ServerHandshake serverHandshake) {
-        send("Hello Server");
         System.out.println("Connect");
     }
 
