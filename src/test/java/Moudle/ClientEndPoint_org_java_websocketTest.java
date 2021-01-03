@@ -12,9 +12,9 @@ class ClientEndPoint_org_java_websocketTest {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                ClientEndPoint_org_java_websocket Client = null;
+                javaWebSocketClient Client = null;
                 try {
-                    Client = new ClientEndPoint_org_java_websocket(new URI("ws://localhost:5050/websocket"));
+                    Client = new javaWebSocketClient(new URI("ws://localhost:5050/websocket"));
                     Client.connect();
                     Thread.sleep(5000);
                     Client.close();

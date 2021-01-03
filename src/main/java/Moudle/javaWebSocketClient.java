@@ -7,17 +7,17 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.handshake.ServerHandshake;
 
-public class ClientEndPoint_org_java_websocket extends WebSocketClient{
+public class javaWebSocketClient extends WebSocketClient{
 
-    public ClientEndPoint_org_java_websocket(URI ServerUri, Draft draft) {
+    public javaWebSocketClient(URI ServerUri, Draft draft) {
         super(ServerUri, draft);
     }
 
-    public ClientEndPoint_org_java_websocket(URI ServerUri) {
+    public javaWebSocketClient(URI ServerUri) {
         super(ServerUri);
     }
 
-    public ClientEndPoint_org_java_websocket(URI ServerUri, Map<String, String> HttpHeaders) {
+    public javaWebSocketClient(URI ServerUri, Map<String, String> HttpHeaders) {
         super(ServerUri, HttpHeaders);
     }
 
